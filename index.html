@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>You</title>
+    <title>Tocha Interativa</title>
     <style>
       body {
         display: flex;
@@ -58,6 +58,7 @@
         border-radius: 50% 50% 20% 20%;
         animation: flicker 0.3s infinite alternate-reverse;
         filter: blur(1px);
+        transition: background 1s ease;
       }
 
       .flame:before,
@@ -129,11 +130,11 @@
 
       .spark:nth-child(1) {
         left: 20px;
-        animation-delay: 0.1s;
+        animation-delay: 0.5s;
       }
       .spark:nth-child(2) {
         left: 30px;
-        animation-delay: 0.3s;
+        animation-delay: 0.6s;
       }
       .spark:nth-child(3) {
         left: 40px;
@@ -151,7 +152,7 @@
   </head>
   <body>
     <div class="torch">
-      <div class="flame" onclick="changeColor()"></div>
+      <div class="flame"></div>
       <div class="sparks">
         <div class="spark"></div>
         <div class="spark"></div>
@@ -167,21 +168,45 @@
     </center>
     <script>
       const flame = document.querySelector('.flame');
-      const colors = [
-        'radial-gradient(circle at bottom, rgba(255, 255, 0, 0.8), rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.8), rgba(255, 0, 0, 0.8))',
-        'radial-gradient(circle at bottom, rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.8), rgba(199, 21, 133, 0.8), rgba(128, 0, 128, 0.8))',
-        'radial-gradient(circle at bottom, rgba(173, 216, 230, 0.8), rgba(0, 191, 255, 0.8), rgba(30, 144, 255, 0.8), rgba(0, 0, 255, 0.8))',
-        'radial-gradient(circle at bottom, rgba(0, 255, 127, 0.8), rgba(60, 179, 113, 0.8), rgba(34, 139, 34, 0.8), rgba(0, 100, 0, 0.8))',
-      ];
-      let currentColorIndex = 0;
 
-      function changeColor() {
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-        flame.style.background = colors[currentColorIndex];
-        flame.style.animation = 'none';
-        setTimeout(() => {
-          flame.style.animation = '';
-        }, 10);
+      function getColorFromMouseEvent(event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const red = Math.round((x / width) * 255);
+        const green = Math.round((y / height) * 255);
+        const blue = 255 - Math.round((x / width) * 255);
+
+        return `radial-gradient(circle at bottom, rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8))`;
+      }
+
+      function getColorFromDeviceOrientation(event) {
+        const x = event.beta; // Inclinação frontal e traseira
+        const y = event.gamma; // Inclinação lateral
+
+        const red = Math.round(((x + 180) / 360) * 255);
+        const green = Math.round(((y + 90) / 180) * 255);
+        const blue = 255 - Math.round(((x + 180) / 360) * 255);
+
+        return `radial-gradient(circle at bottom, rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8))`;
+      }
+
+      function changeFlameColor(color) {
+        flame.style.background = color;
+      }
+
+      document.addEventListener('mousemove', (event) => {
+        const color = getColorFromMouseEvent(event);
+        changeFlameColor(color);
+      });
+
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (event) => {
+          const color = getColorFromDeviceOrientation(event);
+          changeFlameColor(color);
+        });
       }
     </script>
   </body>
