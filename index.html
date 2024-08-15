@@ -168,6 +168,16 @@
         <h3>Esta é a tocha do meu amor, mantenha-a acesa</h3>
         <h4>Eu te amo</h4>
         <p style="color: black">para sempre</p>
+        <div class="countdown">
+          <div id="countdown">
+            <p>faltam</p>
+            <span id="days" class="time"></span> dias
+            <span id="hours" class="time"></span> horas
+            <span id="minutes" class="time"></span> minutos
+            <span id="seconds" class="time"></span> segundos
+            <p>para voce chegar</p>
+          </div>
+        </div>
       </div>
     </center>
     <script>
@@ -236,6 +246,33 @@
           shakeElement(flame, event.gamma, event.beta);
         });
       }
+    </script>
+    <script>
+      function updateCountdown() {
+        const targetDate = new Date('2024-08-28T10:50:00').getTime();
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = seconds;
+
+        if (difference < 0) {
+          document.getElementById('countdown').innerHTML = 'Tempo esgotado!';
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
     </script>
   </body>
 </html>
