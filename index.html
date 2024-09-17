@@ -167,6 +167,7 @@
       <div style="color: white; margin-left: 30px">
         <h3>Esta é a tocha do meu amor, mantenha-a acesa</h3>
         <h4>Eu te amo</h4>
+        <div class="countdown" id="countdown"></div>
         <p style="color: black">para sempre</p>
       </div>
     </center>
@@ -241,6 +242,38 @@
       setInterval(() => {
         console.log('Estou com medo');
       }, 1000);
+    </script>
+    <script>
+      function updateCountdown() {
+        const targetDate = new Date('2024-10-04T00:00:00');
+        const now = new Date();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+          document.getElementById('countdown').innerHTML =
+            'Obrigado por ter vindo amor, eu te amo <3!';
+          return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = `
+              Faltam... 
+              ${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos
+              para o meu amor chegar <3
+          `;
+      }
+
+      setInterval(updateCountdown, 1000);
+
+      updateCountdown();
     </script>
   </body>
 </html>
