@@ -17,40 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function getColorFromMouseEvent(event) {
-  const x = event.clientX;
-  const y = event.clientY;
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-
-  const red = Math.min(255, Math.max(0, Math.round(255 - (y / height) * 100)));
-  const green = Math.min(140, Math.max(0, Math.round((y / height) * 140)));
-  const blue = 0;
-
-  return `radial-gradient(circle at bottom, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.8), rgba(255, 0, 0, 0.8), rgba(${red}, ${green}, ${blue}, 0.8))`;
-}
-
-function getColorFromDeviceOrientation(event) {
-  const x = event.beta; // Inclinação frontal e traseira
-  const y = event.gamma; // Inclinação lateral
-
-  const red = Math.min(
-    255,
-    Math.max(0, Math.round(255 - ((x + 180) / 360) * 100))
-  );
-  const green = Math.min(140, Math.max(0, Math.round(((y + 90) / 180) * 140)));
-  const blue = 0;
-
-  return `radial-gradient(circle at bottom, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.8), rgba(255, 0, 0, 0.8), rgba(${red}, ${green}, ${blue}, 0.8))`;
-}
-
-function shakeElement(element, x, y) {
-  const maxShake = 40; // Máximo deslocamento de shake em pixels
-  const shakeX = (x / window.innerWidth) * maxShake - maxShake / 2;
-  const shakeY = (y / window.innerHeight) * maxShake - maxShake / 2;
-  element.style.transform = `translate(${shakeX}px, ${shakeY}px)`;
-}
-
 function updateCountdown() {
   const targetDate = new Date('2024-10-02T00:20:20');
   const now = new Date();
@@ -75,5 +41,4 @@ function updateCountdown() {
       `;
 }
 
-// updateCountdown();
 setInterval(updateCountdown, 1000);
