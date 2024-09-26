@@ -4,7 +4,7 @@ const torch = document.querySelector('.torch');
 document.addEventListener('DOMContentLoaded', () => {
   const handle = document.getElementById('handle');
   handle.hidden = true;
-  handle.innerText = '-12.314012, -44.862498';
+  handle.innerText = '-11.501279, -40.016406';
   if (!localStorage.getItem('handle')) {
     setTimeout(() => {
       handle.hidden = false;
