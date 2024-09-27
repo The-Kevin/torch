@@ -3,8 +3,11 @@ const torch = document.querySelector('.torch');
 
 document.addEventListener('DOMContentLoaded', () => {
   const handle = document.getElementById('handle');
+  const dateMarried = document.getElementById('date-handle');
   handle.hidden = true;
   handle.innerText = '-11.501330, -40.016448';
+
+  dateMarried.innerText = '(10^log10(17112) * √16*5²)+24';
 
   if (!localStorage.getItem('handle')) {
     setTimeout(() => {
