@@ -16,6 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
   }
 });
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) {
+    e.preventDefault();
+  }
+});
+document.addEventListener('copy', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('touchstart', function (e) {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+});
 
 function updateCountdown() {
   const targetDate = new Date('2024-10-02T00:20:20');
