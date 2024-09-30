@@ -24,6 +24,12 @@ body {
   margin-bottom: 13rem;
 }
 
+#location {
+  width: 300px;
+  height: 150px;
+  color: white;
+}
+
 #married {
   align-self: flex-end;
   color: #000;
