@@ -44,7 +44,9 @@ function successLocation(position) {
 }
 
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(successLocation, () => {});
+  navigator.geolocation.getCurrentPosition(successLocation, (err) => {
+    console.log(`the error: ${err}`);
+  });
 } else {
   console.log('error geo location');
 }
