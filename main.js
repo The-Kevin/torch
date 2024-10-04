@@ -21,13 +21,12 @@ document.addEventListener('touchstart', function (e) {
 });
 
 function updateCountdown() {
-  const targetDate = new Date('2024-10-02T20:20:00');
+  const targetDate = new Date('2024-11-03T00:35:00');
   const now = new Date();
   const difference = targetDate - now;
 
   if (difference <= 0) {
-    document.getElementById('countdown').innerHTML =
-      'Obrigado por ter vindo amor, eu te amo <3!';
+    document.getElementById('countdown').innerHTML = '';
     return;
   }
 
@@ -40,7 +39,7 @@ function updateCountdown() {
 
   document.getElementById('countdown').innerHTML = `
           Faltam... 
-          ${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos  para o meu amor chegar <3
+          ${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos EU chegar
       `;
 }
 
