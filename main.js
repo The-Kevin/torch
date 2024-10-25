@@ -21,7 +21,7 @@ document.addEventListener('touchstart', function (e) {
 });
 
 function updateCountdown() {
-  const targetDate = new Date('2024-11-03T00:35:00');
+  const targetDate = new Date('2024-11-03T10:20:00');
   const now = new Date();
   const difference = targetDate - now;
 
