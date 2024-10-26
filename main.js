@@ -20,6 +20,23 @@ document.addEventListener('touchstart', function (e) {
   }
 });
 
+function updateBeginCount(){
+  const sinceDate = new Date('2016-10-25T12:00:00')
+  const currentTime = new Date();
+  
+  const timeDifference = currentTime - sinceDate;
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const months = Math.floor(days / 30.44); 
+  const years = Math.floor(months / 12);
+  
+ 
+  document.getElementById('beginCount').innerHTML = `
+          Ja fazem ${years} anos que eu te amo </br>
+          um total de ${months} meses </br> </br> ou
+          ${days} dias se preferir
+      `;
+}
+
 function updateCountdown() {
   const targetDate = new Date('2024-11-03T10:20:00');
   const now = new Date();
@@ -43,4 +60,4 @@ function updateCountdown() {
       `;
 }
 
-setInterval(updateCountdown, 1000);
+setInterval(() => {updateCountdown(); updateBeginCount()}, 1000);
