@@ -122,10 +122,10 @@ body {
 .spark {
   position: absolute;
   width: 3px;
-  height: 3px;
+  height: 10px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
-  animation: spark 1s infinite;
+  animation: spark 1.3s infinite;
 }
 
 @keyframes spark {
