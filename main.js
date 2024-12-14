@@ -23,23 +23,23 @@ document.addEventListener('touchstart', function (e) {
 function updateBeginCount() {
   const equivalenciaTempo = [
     { dias: 2971, atividade: "O Império Romano durou aproximadamente 2971 dias entre 196 a.C. e 180 a.C." },
-    { dias: 2972, atividade: "Construção da Grande Muralha da China entre 221 a.C. e 202 a.C." },
+    { dias: 2972, atividade: "a Construção da Grande Muralha da China entre 221 a.C. e 202 a.C." },
     { dias: 2973, atividade: "Atravessar o Deserto do Saara com um grupo de exploradores no século XIX." },
     { dias: 2974, atividade: "A viagem de Magalhães ao redor do mundo (1519-1522) levou cerca de 2974 dias." },
-    { dias: 2975, atividade: "Desenvolvimento de um software complexa como o Linux desde seu início em 1991." },
-    { dias: 2976, atividade: "Tempo médio de uma missão espacial tripulada, como as missões da Apollo, considerando o tempo de planejamento e execução." },
+    { dias: 2975, atividade: "o Desenvolvimento de um software complexa como o Linux desde seu início em 1991." },
+    { dias: 2976, atividade: "o Tempo médio de uma missão espacial tripulada, como as missões da Apollo, considerando o tempo de planejamento e execução." },
     { dias: 2977, atividade: "A Guerra dos Cem Anos entre a Inglaterra e a França durou aproximadamente 2977 dias." },
-    { dias: 2978, atividade: "Construção das Pirâmides do Egito, com destaque para a Pirâmide de Quéops, que levou cerca de 2978 dias." },
+    { dias: 2978, atividade: "a Construção das Pirâmides do Egito, com destaque para a Pirâmide de Quéops, que levou cerca de 2978 dias." },
     { dias: 2979, atividade: "O processo de fundação e expansão da cidade de Nova York ao longo dos primeiros anos." },
     { dias: 2980, atividade: "O tempo total de duração da construção da Catedral de Notre-Dame de Paris." },
     { dias: 2981, atividade: "O ciclo de produção de um álbum musical grandioso e experimental, como alguns dos discos de Pink Floyd." },
-    { dias: 2982, atividade: "Tempo médio de duração de grandes expedições ao Polo Sul, como a de Ernest Shackleton (1914-1917)." },
+    { dias: 2982, atividade: "o Tempo médio de duração de grandes expedições ao Polo Sul, como a de Ernest Shackleton (1914-1917)." },
     { dias: 2983, atividade: "A fundação e crescimento de cidades como Roma ou Atenas na Antiguidade." },
     { dias: 2984, atividade: "A execução de um projeto de infraestrutura em grande escala, como a construção de um canal de navegação." },
     { dias: 2985, atividade: "A jornada de Marco Polo pela Ásia, de Veneza à China, durante o século XIII." },
     { dias: 2986, atividade: "O período de tempo de uma revolução ou conflito de longo prazo, como a Revolução Francesa." },
     { dias: 2987, atividade: "O desenvolvimento de uma tecnologia disruptiva, como a criação da Internet no final do século XX." },
-    { dias: 2988, atividade: "Tempo de duração do projeto de preservação e renovação da cidade de Pompeia após seu redescobrimento no século XVIII." },
+    { dias: 2988, atividade: "o Tempo de duração do projeto de preservação e renovação da cidade de Pompeia após seu redescobrimento no século XVIII." },
     { dias: 2989, atividade: "A guerra de resistência contra invasões, como a Guerra de Independência dos Estados Unidos (1775-1783)." },
     { dias: 2990, atividade: "A construção de uma grande obra de arte ou escultura monumental, como o Cristo Redentor no Brasil." },
     { dias: 2991, atividade: "Um grande projeto de engenharia, como a construção do Canal do Panamá, que levou mais de uma década para ser concluído." },
@@ -67,7 +67,7 @@ function updateBeginCount() {
           Ja fazem ${years} anos que eu te amo </br>
           um total de ${months} meses </br> </br>
           
-
+          ${days} dias <br /> assim como 
           ${equivalenciaTempo.find(e => e.dias === days).atividade.toLowerCase() || ""}
           <br /> 
           igual a gente :)
