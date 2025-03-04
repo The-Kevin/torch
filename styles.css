@@ -34,6 +34,14 @@ body {
   color: #000;
 }
 
+#lighter {
+  position: absolute;
+  top: 80%;
+  left: 40%;
+  transform: translate(-80%, -50%) rotate(25deg);
+ 
+}
+
 .torch {
   position: relative;
   width: 30px;

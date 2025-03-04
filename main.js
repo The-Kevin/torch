@@ -1,5 +1,7 @@
 const flame = document.querySelector('.flame');
-const torch = document.querySelector('.torch');
+const torch = document.getElementById('torch');
+const flame_container = document.getElementById('flame_container');
+const lighter = document.getElementById('lighter');
 
 function updateBeginCount() {
 
@@ -13,12 +15,30 @@ function updateBeginCount() {
 
 
   document.getElementById('beginCount').innerHTML = `
-          Ja fazem ${years} anos que eu te amo </br>
+          Ja fazem   ${years} anos que eu te amo </br>
           um total de ${months} meses </br> </br>
           ou ${days} dias, se preferir
   
       `;
 }
+
+torch.addEventListener('click', function () {
+  flame_container.hidden = true;
+
+
+  setTimeout(() => {
+    lighter.hidden = false;
+
+    setTimeout(() => {
+      setTimeout(() => {
+        lighter.hidden = true;
+
+      }, 500)
+      flame_container.hidden = false;
+    }, 500); 
+
+  }, 500);
+});
 
 function updateCountdown() {
   // const targetDate = new Date('2024-12-19T10:00:00');
