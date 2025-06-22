@@ -33,6 +33,13 @@ body {
   align-self: flex-end;
   color: #000;
 }
+#cake{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+
+ 
+}
 
 #lighter {
   position: absolute;
