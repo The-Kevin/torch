@@ -10,13 +10,7 @@ function updateBeginCount() {
   const currentTime = new Date();
 
   const currentDay = currentTime.getDate().toString().padStart(2, '0');
-  const curretMonth = (currentTime.getMonth() + 1).toString().padStart(2, '0');
 
-  if(currentDay = 08 && curretMonth == 07){
-
-    cake.hidden = false;
-
-  }
 
   const timeDifference = currentTime - sinceDate;
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
