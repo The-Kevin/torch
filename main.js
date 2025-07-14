@@ -2,7 +2,6 @@ const flame = document.querySelector('.flame');
 const torch = document.getElementById('torch');
 const flame_container = document.getElementById('flame_container');
 const lighter = document.getElementById('lighter');
-const cake = document.getElementById('cake');
 
 function updateBeginCount() {
 
