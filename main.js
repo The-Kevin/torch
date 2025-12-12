@@ -78,11 +78,10 @@ function updateBeginCount() {
   const years = Math.floor(months / 12);
 
   document.getElementById("beginCount").innerHTML = `
-          Ja fazem   ${years} natais que eu te amo </br>
-          um total de ${months} meses </br> </br>
-          ou ${days} dias, se preferir
-  
-      `;
+    Já fazem ${years} natais que eu te amo </br>
+    um total de ${months} meses </br></br>
+    ou <span class="dias-show">${days} dias</span>, se preferir
+  `;
 }
 
 torch.addEventListener("click", function () {
