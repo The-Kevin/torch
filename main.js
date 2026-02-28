@@ -1,8 +1,5 @@
-const flame = document.querySelector(".flame");
-const torch = document.getElementById("torch");
+const flame = document.querySelector(".flame"); const torch = document.getElementById("torch");
 const flame_container = document.getElementById("flame_container");
-const lighter = document.getElementById("lighter");
-const hat = document.getElementById("hat");
 const dialogBox = document.getElementById("dialog-box");
 
 const dialogues = [
@@ -37,28 +34,10 @@ function updateBeginCount() {
   const years = Math.floor(months / 12);
 
   document.getElementById("beginCount").innerHTML = `
-    Já fazem ${years} anos que eu te amo </br>
-    um total de ${months} meses </br></br>
-    ou <span class="dias-show">${days} dias</span>, se preferir
+    </br> ${years} anos </br>
   `;
 }
 
-torch.addEventListener("click", function () {
-  flame_container.hidden = true;
-  hat.hidden = true;
-
-  setTimeout(() => {
-    lighter.hidden = false;
-
-    setTimeout(() => {
-      setTimeout(() => {
-        lighter.hidden = true;
-      }, 500);
-      flame_container.hidden = false;
-      hat.hidden = false;
-    }, 500);
-  }, 500);
-});
 
 function updateCountdown() {
   // const targetDate = new Date('2024-12-19T10:00:00');

@@ -29,51 +29,9 @@ body {
   color: white;
 }
 
-#married {
-  align-self: flex-end;
-  color: #000;
-}
-#cake{
-  position: absolute;
-  width: 150px;
-  height: 150px;
-
- 
-}
 
 
 
-#hat {
-  position: absolute;
-  top: -190px;
-  left: 70%;
-  transform: translateX(-50%);
-  width: 120px;
-  z-index: 10;
-  animation: hat-flicker 0.3s infinite alternate-reverse;
-}
-
-@keyframes hat-flicker {
-  0% {
-    transform: translateX(-50%) scale(1);
-  }
-
-  50% {
-    transform: translateX(calc(-50% - 2px)) scale(1.05);
-  }
-
-  100% {
-    transform: translateX(calc(-50% + 2px)) scale(1);
-  }
-}
-
-#lighter {
-  position: absolute;
-  top: 80%;
-  left: 40%;
-  transform: translate(-80%, -50%) rotate(25deg);
- 
-}
 
 .torch {
   position: relative;
@@ -226,105 +184,5 @@ body {
   opacity: 0;
   transition: opacity 0.5s;
   z-index: 20;
-}
-
-.dialog-box.show {
-  opacity: 1;
-}
-
-.dialog-box::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -10px;
-  transform: translateY(-50%);
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent white transparent transparent;
-}
-
-/* ===========================
-   Estilo principal (.dias-show)
-   =========================== */
-.dias-show {
-  display: inline-block;
-  font-size: 3.2rem;
-  font-weight: 900;
-  color: #fff;
-  padding: 6px 18px;
-  border-radius: 8px;
-  line-height: 1;
-
-  /* performance / suavidade */
-  transform-origin: 50% 50%;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-  will-change: transform, filter, text-shadow;
-
-  /* Combinação: (1) spin+pulse usa transform; (2) hue (filter) muda cores; (3) glow muda text-shadow */
-  animation:
-    spinPulse 12s linear infinite,
-    hueRotate 10s ease-in-out infinite,
-    neonGlow 3.6s ease-in-out infinite;
-}
-
-/* ===========================
-   Giro contínuo + pulsação
-   -> ÚNICA animação que mexe em transform
-   =========================== */
-@keyframes spinPulse {
-  0%   { transform: scale(1);   }
-  20%  { transform: scale(1.10); }
-  40%  { transform: scale(1.20); }
-  60%  { transform: scale(1.12); }
-  80%  { transform: scale(1.08); }
-  100% { transform: scale(1);   }
-}
-
-/* ===========================
-   Mudança suave de matiz (cores)
-   Usa filter → não conflita com transform
-   =========================== */
-@keyframes hueRotate {
-  0%   { filter: hue-rotate(0deg)   saturate(1.1); }
-  25%  { filter: hue-rotate(90deg)  saturate(1.2); }
-  50%  { filter: hue-rotate(180deg) saturate(1.25);}
-  75%  { filter: hue-rotate(270deg) saturate(1.2); }
-  100% { filter: hue-rotate(360deg) saturate(1.1); }
-}
-
-/* ===========================
-   Glow / neon pulsante (text-shadow)
-   =========================== */
-@keyframes neonGlow {
-  0% {
-    text-shadow:
-      0 0 6px rgba(255,0,230,0.9),
-      0 0 18px rgba(255,0,230,0.55),
-      0 0 30px rgba(0,200,255,0.18);
-  }
-  40% {
-    text-shadow:
-      0 0 10px rgba(255,200,0,0.95),
-      0 0 28px rgba(255,100,0,0.55),
-      0 0 48px rgba(0,255,180,0.12);
-  }
-  70% {
-    text-shadow:
-      0 0 14px rgba(0,220,255,0.95),
-      0 0 34px rgba(120,0,255,0.55),
-      0 0 60px rgba(255,0,200,0.12);
-  }
-  100% {
-    text-shadow:
-      0 0 6px rgba(255,0,230,0.9),
-      0 0 18px rgba(255,0,230,0.55),
-      0 0 30px rgba(0,200,255,0.18);
-  }
-}
-
-/* pequenas variações responsivas (opcional) */
-@media (max-width: 600px) {
-  .dias-show { font-size: 2.2rem; padding: 4px 12px; }
 }
 
